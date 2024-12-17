@@ -1,10 +1,21 @@
 gateways:
-  local:
+  postgres:
     connection:
-      type: duckdb
-      database: db.db
+      type: postgres
+      host: {{ env_var('POSTGRES_HOST') }}
+      port: 5432
+      user: {{ env_var('POSTGRES_USER') }}
+      password: {{ env_var('POSTGRES_PASSWORD') }}
+      database: demo
+    state_connection:
+      type: postgres
+      host: {{ env_var('POSTGRES_HOST') }}
+      port: 5432
+      user: {{ env_var('POSTGRES_USER') }}
+      password: {{ env_var('POSTGRES_PASSWORD') }}
+      database: sqlmesh_state
 
-default_gateway: local
+default_gateway: postgres
 
 model_defaults:
   dialect: postgres
