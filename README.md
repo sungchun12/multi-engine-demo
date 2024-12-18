@@ -65,3 +65,11 @@ set -a        # Turn on auto-export
 source .env   # Read the file, all variables are automatically exported
 set +a        # Turn off auto-export
 ```
+
+- create a new user with s3 and glue permissions: AmazonS3FullAccess, AWSGlueServiceRole
+- aws s3 mb s3://multi-engine-demo-bucket --region us-west-2
+
+run the setup script to load data into s3 and create the iceberg table
+```
+python iceberg_setup.py
+```

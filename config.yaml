@@ -14,6 +14,16 @@ gateways:
       user: {{ env_var('POSTGRES_USER') }}
       password: {{ env_var('POSTGRES_PASSWORD') }}
       database: sqlmesh_state
+  duckdb:
+    connection:
+      type: duckdb
+      catalogs:
+        demo:
+          type: postgres
+          path: 'dbname=demo user=myuser host=localhost'
+      extensions:
+        - name: iceberg
+        - name: httpfs
 
 default_gateway: postgres
 
