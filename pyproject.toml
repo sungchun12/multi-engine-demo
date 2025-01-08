@@ -8,5 +8,5 @@ dependencies = [
     "pyarrow>=18.1.0",
     "pyiceberg[glue]>=0.8.1",
     "ruff>=0.8.3",
-    "sqlmesh[postgres,web]>=0.140.1",
+    "sqlmesh[postgres,web]>=0.142.2",
 ]

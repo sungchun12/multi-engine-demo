@@ -20,10 +20,13 @@ gateways:
       catalogs:
         demo:
           type: postgres
-          path: 'dbname=demo user=myuser host=localhost'
-      extensions:
-        - name: iceberg
-        - name: httpfs
+          path: 'dbname=demo user={{ env_var("POSTGRES_USER") }} host={{ env_var("POSTGRES_HOST") }} password={{ env_var("POSTGRES_PASSWORD") }}'
+      # extensions:
+      #   - name: iceberg
+      #   - name: httpfs
+      # connector_config:
+      #   s3_access_key_id: {{ env_var('AWS_ACCESS_KEY_ID') }}
+      #   s3_secret_access_key: {{ env_var('AWS_SECRET_ACCESS_KEY') }}
 
 default_gateway: postgres
 
